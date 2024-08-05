@@ -26,7 +26,9 @@ jobs:
           distribution: 'temurin'
           
       - name: Compile Java code
-        run: javac src/**/*.java
+        run: |
+          mkdir -p out/production/BattleshipsLANServer
+          javac -d out/production/BattleshipsLANServer src/**/*.java
 
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
