@@ -36,7 +36,7 @@ jobs:
         gradle-version: '8.5'
 
     - name: Init Gradle
-      rund: gradle init
+      run: gradle init
     
     - name: Build with Gradle 8.5
       run: gradle build
