@@ -1,4 +1,4 @@
-FROM arm32v7/eclipse-temurin:17-jre
+FROM arm64v8/eclipse-temurin
 
 WORKDIR /app
 
