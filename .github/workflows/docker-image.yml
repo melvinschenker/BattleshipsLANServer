@@ -2,9 +2,9 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "release/*" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "release/*" ]
 
 jobs:
   push_to_registry:
@@ -48,6 +48,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            melweezy/battleships-lan:${{ env.VERSION }}
+            melweezy/battleships-lan:${{ github.ref_name }}
             melweezy/battleships-lan:latest
           labels: ${{ steps.meta.outputs.labels }}
