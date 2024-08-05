@@ -35,7 +35,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ${{ github.repository.DOCKER_IMAGE_PATH }}
+          images: ${{ vars.DOCKER_IMAGE_PATH }}
           
       - name: Build and push Docker image
         id: push
@@ -45,5 +45,5 @@ jobs:
           platforms: linux/arm64/v8
           file: ./Dockerfile
           push: true
-          tags: ${{ github.repository.DOCKER_IMAGE_PATH }}:${{ github.ref_name }}
+          tags: ${{ vars.DOCKER_IMAGE_PATH }}:${{ github.ref_name }}
           labels: ${{ steps.meta.outputs.labels }}
