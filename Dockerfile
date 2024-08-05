@@ -1,4 +1,11 @@
+# Use an official OpenJDK runtime as a parent image
 FROM openjdk:16
-COPY ./out/production/BattleshipsLANServer/ /tmp
-WORKDIR /tmp
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the compiled classes into the container at /app
+COPY ./out/production/BattleshipsLANServer/ /app
+
+# Run the application
 ENTRYPOINT ["java", "Main"]
