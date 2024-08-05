@@ -1,13 +1,13 @@
-# Use an official OpenJDK runtime as a parent image
 FROM arm32v7/eclipse-temurin:17-jre
 
-# Set the working directory in the container
 WORKDIR /app
 
-RUN ls -l .
+COPY src/ /app/src/
 
-# Copy the compiled classes into the container at /app
-COPY ./out/production/BattleshipsLANServer/ /app
+RUN mkdir /app/bin
 
-# Run the application
-ENTRYPOINT ["java", "Main.java"]
+RUN javac -d /app/bin /app/src/Main.java /app/src/**/*.java
+
+WORKDIR /app/bin
+
+ENTRYPOINT ["java", "Main"]
