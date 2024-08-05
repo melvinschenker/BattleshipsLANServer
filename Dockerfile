@@ -10,4 +10,4 @@ RUN ls -l .
 COPY ./out/production/BattleshipsLANServer/ /app
 
 # Run the application
-ENTRYPOINT ["java", "Main"]
+ENTRYPOINT ["java", "Main.java"]
