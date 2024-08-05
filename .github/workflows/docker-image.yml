@@ -18,18 +18,7 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-
-      - name: Set up JDK 16
-        uses: actions/setup-java@v4
-        with:
-          java-version: '16'
-          distribution: 'temurin'
-          
-      - name: Compile Java code
-        run: |
-          mkdir -p out/production/BattleshipsLANServer
-          javac -d out/production/BattleshipsLANServer src/**/*.java
-
+        
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -58,5 +47,7 @@ jobs:
           platforms: linux/arm64/v8
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            melweezy/battleships-lan:${{ env.VERSION }}
+            melweezy/battleships-lan:latest
           labels: ${{ steps.meta.outputs.labels }}
