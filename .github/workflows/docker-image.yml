@@ -45,5 +45,5 @@ jobs:
           platforms: linux/arm64/v8
           file: ./Dockerfile
           push: true
-          tags: ${{ vars.DOCKER_IMAGE_PATH }}:${{ github.ref_name }}
+          tags: ${{ vars.DOCKER_IMAGE_PATH }}:${{ github.ref_name }} , ${{ vars.DOCKER_IMAGE_PATH }}:latest
           labels: ${{ steps.meta.outputs.labels }}
